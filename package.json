@@ -1,0 +1,19 @@
+{
+	"dependencies": {
+		"date-fns": "^3.5.0",
+		"uuid": "^9.0.1"
+	},
+	"scripts": {
+		"start": "node newindex.js",
+		"dev": "nodemon newinedx.js"
+	},
+	"name": "nodejstutorial",
+	"version": "1.0.0",
+	"main": "newindex.js",
+	"author": "Eduardo",
+	"license": "MIT",
+	"description": "",
+	"devDependencies": {
+		"nodemon": "^3.1.0"
+	}
+}
