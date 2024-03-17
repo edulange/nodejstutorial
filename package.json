@@ -4,12 +4,12 @@
 		"uuid": "^9.0.1"
 	},
 	"scripts": {
-		"start": "node newindex.js",
-		"dev": "nodemon newinedx.js"
+		"start": "node server",
+		"dev": "nodemon server"
 	},
 	"name": "nodejstutorial",
 	"version": "1.0.0",
-	"main": "newindex.js",
+	"main": "server.js",
 	"author": "Eduardo",
 	"license": "MIT",
 	"description": "",

@@ -1,23 +1,14 @@
-const os = require('os')
-const path = require('path')
+const logEvents = require('./logEvents')
+const EventEmitter = require('events')
+class MyEmitter extends EventEmitter {}
 
-// const math = require('./math')
-const { add, subtract, multiply, divide } = require('./math')
+//initialize objets
+const myEmitter = new MyEmitter()
 
-console.log(os.type())
-console.log(os.version())
+//add listener for the log event
+myEmitter.on('log', (msg) => logEvents(msg))
 
-console.log(os.homedir())
-console.log(__dirname)
-console.log(__filename)
-
-console.log(path.dirname(__filename))
-console.log(path.basename(__filename))
-console.log(path.extname(__filename))
-
-console.log(path.parse(__filename))
-
-console.log(add(2, 3))
-console.log(subtract(2, 3))
-console.log(multiply(2, 3))
-console.log(divide(2, 3))
+setTimeout(() => {
+	//Emit Event
+	myEmitter.emit('log', 'Log event emitted!')
+}, 2000)
