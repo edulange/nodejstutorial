@@ -54,3 +54,5 @@ app.get('/*', (req, res) => {
 })
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
+
+https://youtu.be/f2EqECiTBL8?si=hwVwNyetdpKgpg_m&t=8615
