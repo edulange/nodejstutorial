@@ -1,7 +1,26 @@
 const express = require('express')
 const app = express()
 const path = require('path')
+const logEvents = require('./middleware/logEvents')
 const PORT = process.env.PORT || 3500
+
+//custom middleware logger
+app.use((req, res, next) => {
+	logEvents(`${req.method}\t${req.header.origin}\t${req.url}`, 'reqLog.txt')
+	console.log(`${req.method} ${req.path}`)
+	next()
+})
+
+//built-in middleware to handle urlencoded data
+// in other words, form data:
+//'content-type: application/x-www-form-urlencoded'
+app.use(express.urlencoded({ extended: false }))
+
+//built-in middleware for json
+app.use(express.json())
+
+//serve static files
+app.use(express.static(path.join(__dirname, '/public')))
 
 app.get('^/$|/index(.html)?', (req, res) => {
 	//regex
@@ -54,5 +73,3 @@ app.get('/*', (req, res) => {
 })
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
-
-https://youtu.be/f2EqECiTBL8?si=hwVwNyetdpKgpg_m&t=8615
