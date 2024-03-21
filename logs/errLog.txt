@@ -1,1 +1,2 @@
 20240318	19:29:56	4531ace2-cadc-4548-8809-d13c19799237	TypeError: fsPromises.readFil is not a function
+20240320	20:56:58	f1117b59-9bb0-49c9-ae75-189b7f927c69	Error: Not allowed by CORS, escrito pelo backend
