@@ -34,22 +34,31 @@ app.use(express.json())
 
 //serve static files
 app.use(express.static(path.join(__dirname, '/public')))
+app.use('/subdir', express.static(path.join(__dirname, '/public')))
 
-app.get('^/$|/index(.html)?', (req, res) => {
-	//regex
-	//res.sendFile('./views/index.html', { root: __dirname }) // com essa 'option' do {root:} eu estou falando para começar por: __dirname, que é o root
-	res.sendFile(path.join(__dirname, 'views', 'index.html')) // funciona igual a forma de cima
+app.use('/', require('./routes/root'))
+app.use('/subdir', require('./routes/subdir'))
+
+// app.all não aceita regex
+app.all('*', (req, res) => {
+	res.status(404)
+	if (req.accepts('html')) {
+		res.sendFile(path.join(__dirname, 'views', '404.html'))
+	} else if (req.accepts('json')) {
+		res.json({ error: '404 not found, não encontrou o json' })
+	} else {
+		res.type('txt').send('404 not found, não encontrou o txt')
+	}
 })
 
-app.get('/new-page(.html)?', (req, res) => {
-	res.sendFile(path.join(__dirname, 'views', 'new-page.html'))
-})
+app.use(errorHandler)
 
-app.get('/old-page(.html)?', (req, res) => {
-	res.redirect(301, '/new-page.html') //302 by default
-})
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
 
-// Route Handler !!!!!!!
+
+
+
+/* // Route Handler !!!!!!!
 
 app.get(
 	'/hello(.html)?',
@@ -78,25 +87,5 @@ const three = (req, res, next) => {
 	console.log('three')
 	res.send('finished')
 }
-app.get('/chain(.html)?', [one, two, three]) //funciona quase igual a middleware
-
-// app.all não aceita regex
-app.all('*', (req, res) => {
-	res.status(404)
-	if (req.accepts('html')) {
-		res.sendFile(path.join(__dirname, 'views', '404.html'))
-	} else if (req.accepts('json')) {
-		res.json({ error: '404 not found, não encontrou o json' })
-	} else {
-		res.type('txt').send('404 not found, não encontrou o txt')
-	}
-})
-
-app.use(errorHandler)
-
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
-https://youtu.be/f2EqECiTBL8?si=X7Mifl7vRumm5VVo&t=10717
-cansadito
-
-
+app.get('/chain(.html)?', [one, two, three]) //funciona quase igual a middleware */
 
