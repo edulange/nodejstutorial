@@ -38,6 +38,7 @@ app.use('/subdir', express.static(path.join(__dirname, '/public')))
 
 app.use('/', require('./routes/root'))
 app.use('/subdir', require('./routes/subdir'))
+app.use('/employees', require('./routes/api/employees'))
 
 // app.all não aceita regex
 app.all('*', (req, res) => {
@@ -54,9 +55,6 @@ app.all('*', (req, res) => {
 app.use(errorHandler)
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
-
-
-
 
 /* // Route Handler !!!!!!!
 
@@ -88,4 +86,3 @@ const three = (req, res, next) => {
 	res.send('finished')
 }
 app.get('/chain(.html)?', [one, two, three]) //funciona quase igual a middleware */
-
