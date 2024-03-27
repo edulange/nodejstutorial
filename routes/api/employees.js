@@ -24,7 +24,7 @@ router
 		res.json({ id: req.body.id })
 	})
 
-router.route('/:id').get((res, req) => {
+router.route('/:id').get((req, res) => {
 	res.json({ id: req.params.id })
 })
 
