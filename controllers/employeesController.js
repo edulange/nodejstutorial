@@ -63,5 +63,3 @@ module.exports = {
 	deleteEmployee,
 	getEmployee,
 }
-
-https://youtu.be/f2EqECiTBL8?si=xG0iuDeJxiefLrBn&t=13420
