@@ -5,6 +5,7 @@ const cors = require('cors')
 const corsOptions = require('./config/corsOptions')
 const { logger } = require('./middleware/logEvents')
 const errorHandler = require('./middleware/errorHandler')
+const verifyJWT = require('./middleware/verifyJWT')
 const PORT = process.env.PORT || 3500
 
 //custom middleware logger // o logger precisa ficar cedo, pra começar a sempre dar log xD
@@ -27,6 +28,8 @@ app.use(express.static(path.join(__dirname, '/public')))
 app.use('/', require('./routes/root'))
 app.use('/register', require('./routes/register'))
 app.use('/auth', require('./routes/auth'))
+
+app.use(verifyJWT) // aqui funciona como uma cascata, tudo que tiver abaixo dessa linha, vai exigir o token JWT
 app.use('/employees', require('./routes/api/employees'))
 
 // app.all não aceita regex
@@ -40,11 +43,10 @@ app.all('*', (req, res) => {
 		res.type('txt').send('404 not found, não encontrou o txt')
 	}
 })
- f
+
 app.use(errorHandler)
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
-
 
 /* // Route Handler !!!!!!!
 
