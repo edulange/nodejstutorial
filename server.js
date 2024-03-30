@@ -40,7 +40,7 @@ app.all('*', (req, res) => {
 		res.type('txt').send('404 not found, não encontrou o txt')
 	}
 })
-
+ f
 app.use(errorHandler)
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
