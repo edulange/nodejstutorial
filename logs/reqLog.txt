@@ -174,3 +174,4 @@
 20240330	18:24:54	2135d4ff-82ae-4690-85b2-1bcf18133610	GET	undefined	/employees
 20240330	18:25:21	748c9ecf-06b5-40bd-9c8c-23f7b5ca2d88	GET	undefined	/employees
 20240330	18:25:24	c53ca47c-6b6f-4c45-8d6c-9ef6fe079a6d	GET	undefined	/employees
+20240330	18:26:26	5efe8a98-5e59-48b5-b3c7-e5458d7cf7b1	POST	undefined	/employees
