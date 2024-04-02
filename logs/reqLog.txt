@@ -195,3 +195,8 @@
 20240401	20:22:51	47a26a8d-cd97-4d0f-9687-c87ad5731ba5	GET	undefined	/refresh
 20240401	20:24:56	eeeb6030-0412-4c42-9f42-d5dd8482c4f9	POST	undefined	/auth
 20240401	20:25:02	7fce3cd3-b2e0-4524-8f22-97be1aaece39	GET	undefined	/refresh
+20240402	19:47:32	bfd41b71-7670-4f84-b952-fd413af53b8e	POST	undefined	/auth
+20240402	19:47:52	19af1ebf-33b2-49fd-9c14-f723fd5ec296	POST	undefined	/auth
+20240402	19:48:01	d08f3f0d-368f-40ac-b78a-a47591da524c	POST	undefined	/auth
+20240402	19:48:15	ca74a623-6311-42d8-86d9-c531521ce6d8	POST	undefined	/auth
+20240402	19:48:22	372bcf04-9b69-4214-b4e6-af6a63c46f69	POST	undefined	/auth
