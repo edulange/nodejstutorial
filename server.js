@@ -1,5 +1,5 @@
-
-require('dotenv').config()
+//youtu.be/f2EqECiTBL8?si=XSO07XdFgl-rNj6i&t=21265
+https: require('dotenv').config()
 const express = require('express')
 const app = express()
 const path = require('path')
