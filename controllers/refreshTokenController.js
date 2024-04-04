@@ -5,7 +5,7 @@ const usersDB = {
 	},
 }
 const jwt = require('jsonwebtoken')
-require('dotenv').config()
+//require('dotenv').config()  //isso pode ser requisitado apenas no server.js, não é necessário estar aqui
 
 const handleRefreshToken = (req, res) => {
 	const cookies = req.cookies

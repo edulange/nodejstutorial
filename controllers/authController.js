@@ -7,7 +7,7 @@ const usersDB = {
 const bcrypt = require('bcrypt')
 
 const jwt = require('jsonwebtoken')
-require('dotenv').config()
+//require('dotenv').config()  //isso pode ser requisitado apenas no server.js, não é necessário estar aqui
 const fsPromises = require('fs').promises
 const path = require('path')
 
