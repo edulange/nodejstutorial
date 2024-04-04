@@ -1,12 +1,6 @@
-const usersDB = {
-	users: require('../model/users.json'),
-	setUsers: function (data) {
-		this.users = data
-	},
-}
+const User = require('../model/User')
+https://youtu.be/f2EqECiTBL8?si=6ulFqIGoGyX2FoDg&t=22527
 
-const fsPromises = require('fs').promises
-const path = require('path')
 const bcrypt = require('bcrypt')
 
 const handleNewUser = async (req, res) => {
@@ -15,23 +9,21 @@ const handleNewUser = async (req, res) => {
 		return res.status(400).json({ message: 'Username and password are required, do handleUser' })
 
 	//check for duplicate usernames in the db
-	const duplicate = usersDB.users.find((person) => person.username === user)
+	const duplicate = await User.findOne({ username: user }).exec()
 	if (duplicate) return res.sendStatus(409) //conflit
+
 	try {
 		//encrypt the pwd
 		const hashedPwd = await bcrypt.hash(pwd, 10)
-		//store the new user
-		const newUser = {
+
+		//create and store the new user
+		const result = await User.create({
 			username: user,
-			roles: { User: 2001 },
 			password: hashedPwd,
-		}
-		usersDB.setUsers([...usersDB.users, newUser])
-		await fsPromises.writeFile(
-			path.join(__dirname, '..', 'model', 'users.json'),
-			JSON.stringify(usersDB.users)
-		)
-		console.log('usersDB.users :>> ', usersDB.users)
+		})
+
+		console.log('veio do RegisterController -- result :>> ', result);
+
 		res.status(201).json({ sucess: `new user ${user} created!` })
 	} catch (err) {
 		res.status(500).json({ message: err.message })
