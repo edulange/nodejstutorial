@@ -1,6 +1,4 @@
 const User = require('../model/User')
-https://youtu.be/f2EqECiTBL8?si=6ulFqIGoGyX2FoDg&t=22527
-
 const bcrypt = require('bcrypt')
 
 const handleNewUser = async (req, res) => {
@@ -22,7 +20,7 @@ const handleNewUser = async (req, res) => {
 			password: hashedPwd,
 		})
 
-		console.log('veio do RegisterController -- result :>> ', result);
+		console.log('veio do RegisterController -- result :>> ', result)
 
 		res.status(201).json({ sucess: `new user ${user} created!` })
 	} catch (err) {
