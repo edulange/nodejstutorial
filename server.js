@@ -1,6 +1,3 @@
-//youtu.be/f2EqECiTBL8?si=3A5HdV5o6pCR3b8q&t=24308
-https: final
-
 require('dotenv').config()
 const express = require('express')
 const app = express()
